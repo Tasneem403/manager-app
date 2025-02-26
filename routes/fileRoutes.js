@@ -28,7 +28,7 @@ router.get('/read', async (req, res) => {
 router.post('/write', async (req, res) => {
   const { fileName, content } = req.body;
   if (!validWord(fileName)) {
-    return res.status(400).json({ error: 'Invalid file type. Only PDF files are allowed.' });
+    return res.status(400).json({ error: 'Invalid file type. Only docx files are allowed.' });
   }
   try {
     await fs.writeFile(getFilePath(req.body.fileName), req.body.content, 'utf8');
